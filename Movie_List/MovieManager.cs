@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Movie_List
 {
@@ -22,7 +23,7 @@ namespace Movie_List
         public static void DisplayDrama()
         {
             int count = 1;
-            foreach (Movie movie in moviesList)
+            foreach (Movie movie in SortedList())
             {
                 if(movie.Category == "drama")
                 {
@@ -35,7 +36,7 @@ namespace Movie_List
         public static void DisplayHorror()
         {
             int count = 1;
-            foreach (Movie movie in moviesList)
+            foreach (Movie movie in SortedList())
             {
                 if (movie.Category == "horror")
                 {
@@ -49,7 +50,7 @@ namespace Movie_List
         public static void DisplaySciFi()
         {
             int count = 1;
-            foreach (Movie movie in moviesList)
+            foreach (Movie movie in SortedList())
             {
                 if (movie.Category == "sci-fi")
                 {
@@ -62,7 +63,7 @@ namespace Movie_List
         public static void DisplayAnimated()
         {
             int count = 1;
-            foreach (Movie movie in moviesList)
+            foreach (Movie movie in SortedList())
             {
                 if (movie.Category == "animated")
                 {
@@ -72,5 +73,9 @@ namespace Movie_List
             }
         }
 
+        public static List<Movie> SortedList()
+        {
+            return moviesList.OrderBy(movie => movie.Title).ToList();
+        }
     }
 }

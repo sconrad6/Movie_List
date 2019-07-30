@@ -30,32 +30,33 @@ namespace Movie_List
 
         public static void UserChoice()
         {
-            string userChoice = Console.ReadLine().ToLower();
-            if (!string.IsNullOrEmpty(userChoice))
+            string userChoice;
+            do
             {
-                 switch (userChoice)
-                 {
+                userChoice = Console.ReadLine().ToLower();
+                switch (userChoice)
+                {
                     case "animated":
                     case "1":
                         MovieManager.DisplayAnimated();
-                        break;
+                        return;
                     case "horror":
                     case "2":
                         MovieManager.DisplayHorror();
-                        break;
+                        return;
                     case "drama":
                     case "3":
                         MovieManager.DisplayDrama();
-                        break;
+                        return;
                     case "sci-fi":
                     case "4":
                         MovieManager.DisplaySciFi();
-                        break;
+                        return;
                     default:
-                        UserChoice();
+                        Console.WriteLine("Invalid input");
                         break;
-                 }
-            }
+                }
+            } while (MovieValidator.Validator(userChoice));
         }
     }
 }

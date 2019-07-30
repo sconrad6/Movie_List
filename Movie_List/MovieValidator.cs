@@ -1,11 +1,12 @@
 ﻿using System;
 namespace Movie_List
 {
-    public class MovieValidator
+    public static class MovieValidator
     {
-        public static void Vaidator()
+        // return true if the string is not null or empty 
+       public static bool Validator(string input)
         {
-            if ()
+            return !string.IsNullOrEmpty(input);
         }
     }
 }
